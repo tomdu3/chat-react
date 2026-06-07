@@ -21,18 +21,28 @@ function App() {
     <div className="App">
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join a Chat</h3>
+          <h1>Join a Chat</h1>
+          <form action="" method="get">
+            <div className="user-wrap">
+            <label htmlFor='username'>Username</label>
           <input 
             type="text" 
-            placeholder="Username..." 
+            placeholder="Username..."
+            id='username'
             onChange={(e) => setUsername(e.target.value)} 
           />
+          </div>
+          <div className="room-wrap">
+          <label htmlFor='room'>Room</label>
           <input 
             type="text" 
-            placeholder="Room ID..." 
+            placeholder="Room ID..."
+            id='room' 
             onChange={(e) => setRoom(e.target.value)} 
           />
+          </div>
           <button onClick={joinRoom}>Join Room</button>
+          </form>
         </div>
       ) : (
         <Chat socket={socket} username={username} room={room} />
